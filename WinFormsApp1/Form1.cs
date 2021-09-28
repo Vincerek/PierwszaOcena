@@ -15,7 +15,28 @@ namespace WinFormsApp1
         public Form1()
         {
             InitializeComponent();
+            SetMyCustomFormat();
+        }
+        public void SetMyCustomFormat()
+        {
+            // Set the Format type and the CustomFormat string.
+            dataTeraz.Format = DateTimePickerFormat.Custom;
+            dataTeraz.CustomFormat = "dd.mm.yyyy";
         }
 
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
