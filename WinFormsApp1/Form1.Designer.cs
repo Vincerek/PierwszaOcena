@@ -31,17 +31,20 @@ namespace WinFormsApp1
         {
             this.components = new System.ComponentModel.Container();
             this.imie = new System.Windows.Forms.TextBox();
-            this.dataTeraz = new System.Windows.Forms.DateTimePicker();
+            this.dataUrodzenia = new System.Windows.Forms.DateTimePicker();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.nazwisko = new System.Windows.Forms.TextBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.LabelUrodzenie = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.numericWiek = new System.Windows.Forms.NumericUpDown();
-            this.labelWiek = new System.Windows.Forms.Label();
-            this.LabelTeraz = new System.Windows.Forms.Label();
+            this.labelWiekNumeric = new System.Windows.Forms.Label();
+            this.LabelData = new System.Windows.Forms.Label();
             this.bWypisz = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelGodzina = new System.Windows.Forms.Label();
+            this.labelImie = new System.Windows.Forms.Label();
+            this.labelNazwisko = new System.Windows.Forms.Label();
+            this.labelWiek = new System.Windows.Forms.Label();
+            this.labelDataUro = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericWiek)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,13 +55,16 @@ namespace WinFormsApp1
             this.imie.PlaceholderText = "Podaj Imię";
             this.imie.Size = new System.Drawing.Size(100, 23);
             this.imie.TabIndex = 0;
+            this.imie.TextChanged += new System.EventHandler(this.imie_TextChanged);
             // 
-            // dataTeraz
+            // dataUrodzenia
             // 
-            this.dataTeraz.Location = new System.Drawing.Point(579, 41);
-            this.dataTeraz.Name = "dataTeraz";
-            this.dataTeraz.Size = new System.Drawing.Size(200, 23);
-            this.dataTeraz.TabIndex = 1;
+            this.dataUrodzenia.Location = new System.Drawing.Point(12, 163);
+            this.dataUrodzenia.Name = "dataUrodzenia";
+            this.dataUrodzenia.Size = new System.Drawing.Size(200, 23);
+            this.dataUrodzenia.TabIndex = 1;
+            this.dataUrodzenia.Value = new System.DateTime(2021, 9, 28, 14, 16, 14, 0);
+            this.dataUrodzenia.ValueChanged += new System.EventHandler(this.dataTeraz_ValueChanged);
             // 
             // timer
             // 
@@ -73,14 +79,6 @@ namespace WinFormsApp1
             this.nazwisko.PlaceholderText = "Podaj Nazwisko";
             this.nazwisko.Size = new System.Drawing.Size(100, 23);
             this.nazwisko.TabIndex = 2;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(12, 167);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 23);
-            this.dateTimePicker2.TabIndex = 4;
-            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // LabelUrodzenie
             // 
@@ -98,56 +96,96 @@ namespace WinFormsApp1
             this.numericWiek.Size = new System.Drawing.Size(120, 23);
             this.numericWiek.TabIndex = 6;
             // 
-            // labelWiek
+            // labelWiekNumeric
             // 
-            this.labelWiek.AutoSize = true;
-            this.labelWiek.Location = new System.Drawing.Point(12, 77);
-            this.labelWiek.Name = "labelWiek";
-            this.labelWiek.Size = new System.Drawing.Size(64, 15);
-            this.labelWiek.TabIndex = 7;
-            this.labelWiek.Text = "Podaj wiek";
+            this.labelWiekNumeric.AutoSize = true;
+            this.labelWiekNumeric.Location = new System.Drawing.Point(12, 77);
+            this.labelWiekNumeric.Name = "labelWiekNumeric";
+            this.labelWiekNumeric.Size = new System.Drawing.Size(64, 15);
+            this.labelWiekNumeric.TabIndex = 7;
+            this.labelWiekNumeric.Text = "Podaj wiek";
             // 
-            // LabelTeraz
+            // LabelData
             // 
-            this.LabelTeraz.AutoSize = true;
-            this.LabelTeraz.Location = new System.Drawing.Point(579, 12);
-            this.LabelTeraz.Name = "LabelTeraz";
-            this.LabelTeraz.Size = new System.Drawing.Size(80, 15);
-            this.LabelTeraz.TabIndex = 8;
-            this.LabelTeraz.Text = "Aktualna data";
+            this.LabelData.AutoSize = true;
+            this.LabelData.Location = new System.Drawing.Point(579, 12);
+            this.LabelData.Name = "LabelData";
+            this.LabelData.Size = new System.Drawing.Size(97, 15);
+            this.LabelData.TabIndex = 8;
+            this.LabelData.Text = "Aktualna data to:";
             // 
             // bWypisz
             // 
-            this.bWypisz.Location = new System.Drawing.Point(356, 113);
+            this.bWypisz.Location = new System.Drawing.Point(332, 134);
             this.bWypisz.Name = "bWypisz";
             this.bWypisz.Size = new System.Drawing.Size(102, 52);
             this.bWypisz.TabIndex = 9;
             this.bWypisz.Text = "Wypisz dane";
             this.bWypisz.UseVisualStyleBackColor = true;
+            this.bWypisz.Click += new System.EventHandler(this.bWypisz_Click);
             // 
-            // label1
+            // labelGodzina
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(579, 86);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 15);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Aktualna data";
+            this.labelGodzina.AutoSize = true;
+            this.labelGodzina.Location = new System.Drawing.Point(579, 49);
+            this.labelGodzina.Name = "labelGodzina";
+            this.labelGodzina.Size = new System.Drawing.Size(116, 15);
+            this.labelGodzina.TabIndex = 10;
+            this.labelGodzina.Text = "Aktualna godzina to:";
+            // 
+            // labelImie
+            // 
+            this.labelImie.AutoSize = true;
+            this.labelImie.Location = new System.Drawing.Point(12, 229);
+            this.labelImie.Name = "labelImie";
+            this.labelImie.Size = new System.Drawing.Size(30, 15);
+            this.labelImie.TabIndex = 11;
+            this.labelImie.Text = "Imie";
+            // 
+            // labelNazwisko
+            // 
+            this.labelNazwisko.AutoSize = true;
+            this.labelNazwisko.Location = new System.Drawing.Point(12, 244);
+            this.labelNazwisko.Name = "labelNazwisko";
+            this.labelNazwisko.Size = new System.Drawing.Size(57, 15);
+            this.labelNazwisko.TabIndex = 12;
+            this.labelNazwisko.Text = "Nazwisko";
+            // 
+            // labelWiek
+            // 
+            this.labelWiek.AutoSize = true;
+            this.labelWiek.Location = new System.Drawing.Point(12, 259);
+            this.labelWiek.Name = "labelWiek";
+            this.labelWiek.Size = new System.Drawing.Size(33, 15);
+            this.labelWiek.TabIndex = 13;
+            this.labelWiek.Text = "Wiek";
+            // 
+            // labelDataUro
+            // 
+            this.labelDataUro.AutoSize = true;
+            this.labelDataUro.Location = new System.Drawing.Point(12, 274);
+            this.labelDataUro.Name = "labelDataUro";
+            this.labelDataUro.Size = new System.Drawing.Size(84, 15);
+            this.labelDataUro.TabIndex = 14;
+            this.labelDataUro.Text = "DataUrodzenia";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.bWypisz);
-            this.Controls.Add(this.LabelTeraz);
+            this.Controls.Add(this.labelDataUro);
             this.Controls.Add(this.labelWiek);
+            this.Controls.Add(this.labelNazwisko);
+            this.Controls.Add(this.labelImie);
+            this.Controls.Add(this.labelGodzina);
+            this.Controls.Add(this.bWypisz);
+            this.Controls.Add(this.LabelData);
+            this.Controls.Add(this.labelWiekNumeric);
             this.Controls.Add(this.numericWiek);
             this.Controls.Add(this.LabelUrodzenie);
-            this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.nazwisko);
-            this.Controls.Add(this.dataTeraz);
+            this.Controls.Add(this.dataUrodzenia);
             this.Controls.Add(this.imie);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -161,17 +199,20 @@ namespace WinFormsApp1
         #endregion
 
         private System.Windows.Forms.TextBox imie;
-        private System.Windows.Forms.DateTimePicker dataTeraz;
+        private System.Windows.Forms.DateTimePicker dataUrodzenia;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.TextBox nazwisko;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label LabelUrodzenie;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.NumericUpDown numericWiek;
-        private System.Windows.Forms.Label labelWiek;
-        private System.Windows.Forms.Label LabelTeraz;
+        private System.Windows.Forms.Label labelWiekNumeric;
+        private System.Windows.Forms.Label LabelData;
         private System.Windows.Forms.Button bWypisz;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelGodzina;
+        private System.Windows.Forms.Label labelImie;
+        private System.Windows.Forms.Label labelNazwisko;
+        private System.Windows.Forms.Label labelWiek;
+        private System.Windows.Forms.Label labelDataUro;
     }
 }
 

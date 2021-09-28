@@ -16,12 +16,14 @@ namespace WinFormsApp1
         {
             InitializeComponent();
             SetMyCustomFormat();
+            labelGodzina.Text = "Aktualna godzina to: " + DateTime.Now.ToString("HH:mm");
+            LabelData.Text = "Aktualna data to: " + DateTime.Now.ToString("dd.MM.yyyy");
         }
         public void SetMyCustomFormat()
         {
             // Set the Format type and the CustomFormat string.
-            dataTeraz.Format = DateTimePickerFormat.Custom;
-            dataTeraz.CustomFormat = "dd.mm.yyyy";
+            dataUrodzenia.Format = DateTimePickerFormat.Custom;
+            dataUrodzenia.CustomFormat = "dd.mm.yyyy";
         }
 
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
@@ -35,6 +37,37 @@ namespace WinFormsApp1
         }
 
         private void timer_Tick(object sender, EventArgs e)
+        {
+            labelGodzina.Text = "Aktualna godzina to: " + DateTime.Now.ToString("HH:mm");
+        }
+
+        private void dataTeraz_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bWypisz_Click(object sender, EventArgs e)
+        {
+            labelNazwisko.Font = new Font(labelNazwisko.Font, FontStyle.Bold);
+            labelWiek.Font = new Font(labelWiek.Font, FontStyle.Bold);
+
+            labelImie.Text = imie.Text;
+            labelNazwisko.Text = nazwisko.Text;
+            labelWiek.Text = "Lat: " + numericWiek.Value.ToString();
+            labelDataUro.Text = dataUrodzenia.Value.ToString("dd.MM.yyyy");
+            
+            int Lata = Convert.ToInt32(Math.Round(numericWiek.Value, 0));
+            if (Lata > 17)
+            {
+                labelDataUro.ForeColor = Color.Blue;
+            }
+            else
+            {
+                labelDataUro.ForeColor = Color.Green;
+            }      
+        }
+
+        private void imie_TextChanged(object sender, EventArgs e)
         {
 
         }
