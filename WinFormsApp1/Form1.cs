@@ -45,6 +45,7 @@ namespace WinFormsApp1
         {
 
         }
+        
         private void bWypisz_Click(object sender, EventArgs e)
         {
             labelNazwisko.Font = new Font(labelNazwisko.Font, FontStyle.Bold);
@@ -82,6 +83,22 @@ namespace WinFormsApp1
         private void imie_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            labelImie.Font = new Font("Times New Roman", 10, FontStyle.Regular);
+            labelNazwisko.Font = new Font("Times New Roman", 10, FontStyle.Bold);
+            labelWiek.Font = new Font("Times New Roman", 10, FontStyle.Bold);
+            labelDataUro.Font = new Font("Times New Roman", 10, FontStyle.Regular);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            labelImie.Font = new Font("Arial", 10, FontStyle.Regular);
+            labelNazwisko.Font = new Font("Arial", 10, FontStyle.Bold);
+            labelWiek.Font = new Font("Arial", 10, FontStyle.Bold);
+            labelDataUro.Font = new Font("Arial", 10, FontStyle.Regular);
         }
     }
 }

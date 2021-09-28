@@ -46,6 +46,8 @@ namespace WinFormsApp1
             this.labelWiek = new System.Windows.Forms.Label();
             this.labelDataUro = new System.Windows.Forms.Label();
             this.terazPicker = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericWiek)).BeginInit();
             this.SuspendLayout();
             // 
@@ -178,11 +180,33 @@ namespace WinFormsApp1
             this.terazPicker.TabIndex = 15;
             this.terazPicker.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(332, 225);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Zmień times";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(332, 255);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(125, 23);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "Zmień arial";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.terazPicker);
             this.Controls.Add(this.labelDataUro);
             this.Controls.Add(this.labelWiek);
@@ -224,6 +248,8 @@ namespace WinFormsApp1
         private System.Windows.Forms.Label labelWiek;
         private System.Windows.Forms.Label labelDataUro;
         private System.Windows.Forms.DateTimePicker terazPicker;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
