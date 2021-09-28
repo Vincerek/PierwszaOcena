@@ -45,7 +45,6 @@ namespace WinFormsApp1
         {
 
         }
-
         private void bWypisz_Click(object sender, EventArgs e)
         {
             labelNazwisko.Font = new Font(labelNazwisko.Font, FontStyle.Bold);
@@ -64,7 +63,20 @@ namespace WinFormsApp1
             else
             {
                 labelDataUro.ForeColor = Color.Green;
-            }      
+            }
+            DateTime teraz = DateTime.Now;
+            DateTime Pelnoletnosc = teraz.AddYears(-18);
+            DateTime Urodzony = dataUrodzenia.Value;
+            TimeSpan IleLat = terazPicker.Value - dataUrodzenia.Value;
+            DateTime dt = new DateTime() + IleLat;
+            if (dt.Year > Lata)
+            {
+                MessageBox.Show("Wiek z datą urodzenia się nie zgadza");
+            }
+            else if(dt.Year < Lata)
+            {
+                MessageBox.Show("Wiek z datą urodzenia się nie zgadza");
+            }
         }
 
         private void imie_TextChanged(object sender, EventArgs e)

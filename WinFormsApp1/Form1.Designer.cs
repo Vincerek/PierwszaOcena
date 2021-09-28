@@ -45,6 +45,7 @@ namespace WinFormsApp1
             this.labelNazwisko = new System.Windows.Forms.Label();
             this.labelWiek = new System.Windows.Forms.Label();
             this.labelDataUro = new System.Windows.Forms.Label();
+            this.terazPicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.numericWiek)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,11 +170,20 @@ namespace WinFormsApp1
             this.labelDataUro.TabIndex = 14;
             this.labelDataUro.Text = "DataUrodzenia";
             // 
+            // terazPicker
+            // 
+            this.terazPicker.Location = new System.Drawing.Point(579, 362);
+            this.terazPicker.Name = "terazPicker";
+            this.terazPicker.Size = new System.Drawing.Size(200, 23);
+            this.terazPicker.TabIndex = 15;
+            this.terazPicker.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.terazPicker);
             this.Controls.Add(this.labelDataUro);
             this.Controls.Add(this.labelWiek);
             this.Controls.Add(this.labelNazwisko);
@@ -213,6 +223,7 @@ namespace WinFormsApp1
         private System.Windows.Forms.Label labelNazwisko;
         private System.Windows.Forms.Label labelWiek;
         private System.Windows.Forms.Label labelDataUro;
+        private System.Windows.Forms.DateTimePicker terazPicker;
     }
 }
 
